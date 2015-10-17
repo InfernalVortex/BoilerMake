@@ -4,5 +4,7 @@
     <string name="app_name">schedulrBoilerMake</string>
     <string name="start">Get started!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="work_Pressure">Do you work well under pressure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

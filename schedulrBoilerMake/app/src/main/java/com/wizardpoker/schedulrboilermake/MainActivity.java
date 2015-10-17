@@ -1,6 +1,7 @@
 package com.wizardpoker.schedulrboilermake;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
+
+import static android.app.PendingIntent.getActivity;
 
 
 public class MainActivity extends Activity {
@@ -18,6 +22,13 @@ public class MainActivity extends Activity {
     private boolean mBreakDuring;
     private int mBreakFrequency;
     private Button mSettingButtom;
+    private Button mNextButton;
+    private String title;
+    private int time;
+    private int importance;
+    private EditText editName;
+    private EditText editTime;
+    private EditText editImportance;
 
     public void setUnderPressure(boolean mUnderPressure) {
         this.mUnderPressure = mUnderPressure;
@@ -46,6 +57,24 @@ public class MainActivity extends Activity {
                 startActivity(i);
             }
         });
+
+        EditText exitName = (EditText) findViewById(R.id.task_Name);
+        title = editName.getText().toString();
+
+        EditText exitTime = (EditText) findViewById(R.id.task_Time);
+        time = Integer.parseInt(editName.getText().toString());
+
+        EditText exitImportance = (EditText) findViewById(R.id.task_Importance);
+        importance = Integer.parseInt(editName.getText().toString());
+
+        mNextButton = (Button) findViewById(R.id.nextButton);
+        mNextButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick( View v ){
+            }
+        });
+
+
 
         // Restore Data from previous opening if exists
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);

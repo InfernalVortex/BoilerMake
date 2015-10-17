@@ -31,8 +31,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="20dp"
+        android:orientation="vertical"
+        android:padding="70dp"
         android:gravity="center">
         <EditText
             android:id="@+id/task_Name"
@@ -41,19 +41,27 @@
             android:hint="Task Name" />
 
         <EditText
-            android:layout_width="158dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:hint="Approximate Time" />
-
-        <SeekBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar"
-            android:layout_weight="1" />
+            android:inputType="number"
+            android:id="@+id/task_Time"
+            android:hint="Approximate Time" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:id="@+id/task_Importance"
+            android:hint="Importance (1-10)" />
 
     </LinearLayout>
+
+    <Button
+
+        android:id= "@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:text="Next"
+        />
 
 </LinearLayout>
