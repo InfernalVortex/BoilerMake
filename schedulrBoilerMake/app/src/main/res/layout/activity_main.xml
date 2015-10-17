@@ -5,29 +5,51 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
     android:layout_gravity="center"
-    android:orientation="vertical">
-
-    <TextView
-        android:text="@string/start"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    android:orientation="vertical"
+    android:touchscreenBlocksFocus="false">
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="@string/start"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/getStarted"
+            android:focusable="false"
+            android:textSize="30dp" />
+        <Button
+            android:id="@+id/setting_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_settings"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:gravity="center">
         <EditText
             android:id="@+id/task_Name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Task Name" />
+
         <EditText
-            android:id="@+id/time"
+            android:layout_width="158dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:hint="Approximate Time" />
+
+        <SeekBar
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <NumberPicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            </NumberPicker>
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar"
+            android:layout_weight="1" />
 
     </LinearLayout>
 
