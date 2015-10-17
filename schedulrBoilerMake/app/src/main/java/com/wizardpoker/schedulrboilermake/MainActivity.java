@@ -15,7 +15,6 @@ public class MainActivity extends Activity {
     private boolean mBreakDuring;
     private int mBreakFrequency;
 
-
     public void setUnderPressure(boolean mUnderPressure) {
         this.mUnderPressure = mUnderPressure;
     }
@@ -27,6 +26,7 @@ public class MainActivity extends Activity {
     public void setBreakPeriod(boolean mBreakDuring) {
         this.mBreakDuring = mBreakDuring;
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
