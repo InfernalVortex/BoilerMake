@@ -1,11 +1,14 @@
 package com.wizardpoker.schedulrboilermake;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 
 
 public class MainActivity extends Activity {
@@ -14,6 +17,7 @@ public class MainActivity extends Activity {
     private boolean mUnderPressure;
     private boolean mBreakDuring;
     private int mBreakFrequency;
+    private Button mSettingButtom;
 
     public void setUnderPressure(boolean mUnderPressure) {
         this.mUnderPressure = mUnderPressure;
@@ -34,6 +38,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mSettingButtom = (Button) findViewById(R.id.setting_Button);
+        mSettingButtom.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick( View v ){
+                Intent i = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(i);
+            }
+        });
 
         // Restore Data from previous opening if exists
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
