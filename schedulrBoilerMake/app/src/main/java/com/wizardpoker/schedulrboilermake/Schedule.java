@@ -10,8 +10,8 @@ public class Schedule {
     private boolean breakDuring;
     private int breakFrequency;
     private int breakDuration;
-    private ArrayList<String[]> events = new ArrayList<>();
-    private ArrayList<String[]> schedule = new ArrayList<>();
+    private ArrayList<String[]> events = new ArrayList<>(); // edited events
+    private ArrayList<String[]> schedule = new ArrayList<>(); // just user entered events
 
     public Schedule(boolean underPressure, boolean breakDuring, int breakFrequency) {
         this.underPressure = underPressure;
@@ -29,7 +29,7 @@ public class Schedule {
         String sImportance = importance + "";
         String[] event = {title, sTime, sImportance};
 
-        events.add(event);
+        schedule.add(event);
     }
 
     public void delEvent(String title, int time, int importance) {
@@ -37,7 +37,7 @@ public class Schedule {
         String sImportance = importance + "";
         String[] event = {title, sTime, sImportance};
 
-        events.remove(event);
+        schedule.remove(event);
     }
 
     public void sortEvents(boolean underPressure) {
@@ -127,15 +127,27 @@ public class Schedule {
             }
         }
         else {
-
+            for (int i = 0; i < events.size(); i += 2) {
+                int a = 1;
+                String[] ei = events.get(i);
+                for (int j = i+1; j < events.size(); j++) {
+                    String[] ej = events.get(j);
+                    if (Integer.parseInt(ej[2]) == Integer.parseInt(ei[2]))
+                        a++;
+                    i = j;
+                }
+                String[] b = {"Break", breakDuration * a + "", ei[2]};
+                events.add(i+1, b);
+            }
         }
     }
 
     public ArrayList<String[]> refreshSchedule() {
+        events = schedule;
         sortEvents(underPressure);
         splitEvents(breakDuration);
         addBreaks(breakDuring, breakDuration);
-        return schedule;
+        return events;
     }
 
 }
