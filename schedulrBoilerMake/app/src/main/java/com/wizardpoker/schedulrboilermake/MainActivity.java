@@ -1,6 +1,7 @@
 package com.wizardpoker.schedulrboilermake;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,12 +9,39 @@ import android.view.Window;
 
 
 public class MainActivity extends Activity {
+    public static final String PREFS_NAME = "MyPrefsFile";
+
+    private boolean mUnderPressure;
+    private int mBreakInterval;
+    private int mBreakPeriod;
+
+    public void setUnderPressure(boolean mUnderPressure) {
+        this.mUnderPressure = mUnderPressure;
+    }
+
+    public void setBreakInterval(int mBreakInterval) {
+        this.mBreakInterval = mBreakInterval;
+    }
+
+    public void setBreakPeriod(int mBreakPeriod) {
+        this.mBreakPeriod = mBreakPeriod;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        // Restore Data from previous opening if exists
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        boolean underPressure = settings.getBoolean("underPressure", false);
+        int breakInterval = settings.getInt("breakInterval", 15);
+        int breakPeriod = settings.getInt("breakPeriod", 5);
+        setUnderPressure(underPressure);
+        setBreakInterval(breakInterval);
+        setBreakPeriod(breakPeriod);
     }
 
 
@@ -37,5 +65,21 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // Create Editor object to make preference changes.
+        // Objects from android.context.Context
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean("underPressure", mUnderPressure);
+        editor.putInt("breakInterval", mBreakInterval);
+        editor.putInt("breakPeriod", mBreakPeriod);
+
+        //Commit edits
+        editor.commit();
     }
 }
