@@ -27,6 +27,9 @@ public class Schedule {
         else breakDuration = 30;
     }
 
+    public int getScheduleLen() {
+        return schedule.size();
+    }
     public void addEvent(String title, int time, int importance) {
         String sTime = time + "";
         String sImportance = importance + "";
