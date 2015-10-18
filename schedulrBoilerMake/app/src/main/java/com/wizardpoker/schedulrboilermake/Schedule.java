@@ -157,12 +157,18 @@ public class Schedule {
         }
     }
 
-    public ArrayList<String[]> refreshSchedule() {
+    //public ArrayList<String[]> refreshSchedule() {
+    public String[] refreshSchedule() {
         events = schedule;
         sortEvents(underPressure);
         splitEvents(breakDuration);
         addBreaks(breakDuring, breakDuration);
-        return events;
-    }
 
+        String[] eventsSingle = new String[events.size()];
+        for (int i = 0; i < events.size(); i++) {
+            eventsSingle[i] = events.get(i)[0] + " " + events.get(i)[1] + " "
+                    + events.get(i)[2];
+        }
+        return eventsSingle;
+    }
 }
