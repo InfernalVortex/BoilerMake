@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final Schedule s = new Schedule(true,true,1);
+        final Schedule s = new Schedule(true,true,1,true);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

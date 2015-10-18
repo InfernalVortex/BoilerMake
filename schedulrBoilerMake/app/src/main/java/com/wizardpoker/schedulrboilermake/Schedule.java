@@ -8,15 +8,18 @@ import java.util.ArrayList;
 public class Schedule {
     private boolean underPressure;
     private boolean breakDuring;
+    private boolean feelsWell;
     private int breakFrequency;
     private int breakDuration;
     private ArrayList<String[]> events = new ArrayList<>(); // edited events
     private ArrayList<String[]> schedule = new ArrayList<>(); // just user entered events
 
-    public Schedule(boolean underPressure, boolean breakDuring, int breakFrequency) {
+    public Schedule(boolean underPressure, boolean breakDuring, int breakFrequency,
+                    boolean feelsWell) {
         this.underPressure = underPressure;
         this.breakDuring = breakDuring;
         this.breakFrequency = breakFrequency;
+        this.feelsWell = feelsWell;
         if (this.breakFrequency == 0)
             breakDuration = 10;
         else if (this.breakFrequency == 1)
@@ -139,6 +142,13 @@ public class Schedule {
                 String[] b = {"Break", breakDuration * a + "", ei[2]};
                 events.add(i+1, b);
             }
+        }
+    }
+
+    public void delayStart(boolean feelsWell, int breakDuration) {
+        if (!feelsWell) {
+            String[] a = {"Break", breakDuration + "", 0 + ""};
+            events.add(0,a);
         }
     }
 
