@@ -17,7 +17,8 @@ public class listView extends Activity {
 
     protected void onCreate(Bundle savedInstanceStates){
         super.onCreate(savedInstanceStates);
-
+        setContentView(R.layout.activity_listview);
+        
         Schedule s = new Schedule(true, true, 1, true);
         ListAdapter adapter = new ArrayAdapter<String>(this,
         android.R.layout.simple_list_item_1, android.R.id.text1, s.refreshSchedule());
@@ -25,6 +26,5 @@ public class listView extends Activity {
         ListView myListView = (ListView) findViewById(R.id.listView);
         myListView.setAdapter(adapter);
 
-        setContentView(R.layout.activity_listview);
     }
 }
