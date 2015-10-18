@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".SettingActivity"
             android:label="Settings"/>
+        <activity android:name=".listView"
+            android:label="Schedule"/>
     </application>
 
 </manifest>

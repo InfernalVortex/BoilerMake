@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
     private int mBreakFrequency;
     private Button mSettingButtom;
     private Button mNextButton;
+    private Button mCreateButton;
     private String title;
     private int time;
     private int importance;
@@ -60,7 +61,14 @@ public class MainActivity extends Activity {
             }
         });
 
-
+        mCreateButton = (Button) findViewById(R.id.createButton);
+        mCreateButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick( View v ){
+                Intent i = new Intent(MainActivity.this, listView.class);
+                startActivity(i);
+            }
+        });
 
         mNextButton = (Button) findViewById(R.id.nextButton);
         mNextButton.setOnClickListener(new View.OnClickListener(){
