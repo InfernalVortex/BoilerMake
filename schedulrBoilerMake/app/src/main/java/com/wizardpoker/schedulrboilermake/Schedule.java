@@ -30,10 +30,12 @@ public class Schedule {
     public int getScheduleLen() {
         return schedule.size();
     }
+
     public void addEvent(String title, int time, int importance) {
         String sTime = time + "";
         String sImportance = importance + "";
         String[] event = {title, sTime, sImportance};
+        String var = title + time + importance;
 
         schedule.add(event);
     }
@@ -159,15 +161,14 @@ public class Schedule {
 
     //public ArrayList<String[]> refreshSchedule() {
     public String[] refreshSchedule() {
-        events = schedule;
-        sortEvents(underPressure);
-        splitEvents(breakDuration);
-        addBreaks(breakDuring, breakDuration);
+        events = new ArrayList<String[]>(schedule);
+        //sortEvents(underPressure);
+        //splitEvents(breakDuration);
+        //addBreaks(breakDuring, breakDuration);
 
         String[] eventsSingle = new String[events.size()];
         for (int i = 0; i < events.size(); i++) {
-            eventsSingle[i] = events.get(i)[0] + " " + events.get(i)[1] + " "
-                    + events.get(i)[2];
+            eventsSingle[i] = events.get(i) + "";
         }
         return eventsSingle;
     }
