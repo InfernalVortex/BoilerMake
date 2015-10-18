@@ -67,8 +67,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick( View v ){
                 EditText editName = (EditText) findViewById(R.id.task_Name);
-                if(editName.getText().toString() == null ||
-                        editName.getText().toString().equals("")){
+                if(editName.getText().toString().equals("")){
                     title = "Event";
                 }
                 else {
