@@ -67,7 +67,8 @@ public class MainActivity extends Activity {
             @Override
             public void onClick( View v ){
                 EditText editName = (EditText) findViewById(R.id.task_Name);
-                if(editName.getText().toString() == null ){
+                if(editName.getText().toString() == null ||
+                        editName.getText().toString() == ""){
                     title = "Event";
                 }
                 else {
@@ -75,7 +76,7 @@ public class MainActivity extends Activity {
                 }
 
                 EditText editTime = (EditText) findViewById(R.id.task_Time);
-                if(editTime.getText().toString() == null ){
+                if(editTime.getText().toString().equals("")){
                     time = 0;
                 }
                 else {
@@ -84,7 +85,7 @@ public class MainActivity extends Activity {
                 }
 
                 EditText editImportance = (EditText) findViewById(R.id.task_Importance);
-                if(editImportance.getText().toString() == null){
+                if(editImportance.getText().toString().equals("")){
                     importance = 0;
                 }
                 else {
