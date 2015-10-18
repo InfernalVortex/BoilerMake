@@ -59,22 +59,28 @@ public class MainActivity extends Activity {
             }
         });
 
-        EditText editName = (EditText) findViewById(R.id.task_Name);
-        title = editName.getText().toString();
 
-        EditText editTime = (EditText) findViewById(R.id.task_Time);
-        String a = editTime.getText().toString();
-        time = Integer.parseInt(a);
-
-        EditText editImportance = (EditText) findViewById(R.id.task_Importance);
-        String b = editImportance.getText().toString();
-        importance = Integer.parseInt(b);
 
         mNextButton = (Button) findViewById(R.id.nextButton);
         mNextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick( View v ){
+                EditText editName = (EditText) findViewById(R.id.task_Name);
+                title = editName.getText().toString();
+
+                EditText editTime = (EditText) findViewById(R.id.task_Time);
+                String a = editTime.getText().toString();
+                time = Integer.parseInt(a);
+
+                EditText editImportance = (EditText) findViewById(R.id.task_Importance);
+                String b = editImportance.getText().toString();
+                importance = Integer.parseInt(b);
+
                 s.addEvent(title, time, importance);
+
+                editName.setText("");
+                editTime.setText("");
+                editImportance.setText("");
             }
         });
 
