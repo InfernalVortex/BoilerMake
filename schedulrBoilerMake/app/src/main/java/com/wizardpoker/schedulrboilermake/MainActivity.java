@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
             public void onClick( View v ){
                 EditText editName = (EditText) findViewById(R.id.task_Name);
                 if(editName.getText().toString() == null ){
-                    title = "Event";
+                    title = "Event" + s.getScheduleLen();
                 }
                 else {
                     title = editName.getText().toString();
