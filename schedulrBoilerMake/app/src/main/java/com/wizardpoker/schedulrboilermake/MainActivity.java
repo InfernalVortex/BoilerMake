@@ -67,16 +67,17 @@ public class MainActivity extends Activity {
             @Override
             public void onClick( View v ){
                 EditText editName = (EditText) findViewById(R.id.task_Name);
-                if(editName.getText().toString() == null ){
-                    title = "Event" + s.getScheduleLen();
+                if(editName.getText().toString() == null ||
+                        editName.getText().toString().equals("")){
+                    title = "Event";
                 }
                 else {
                     title = editName.getText().toString();
                 }
 
                 EditText editTime = (EditText) findViewById(R.id.task_Time);
-                if(editTime.getText().toString() == null ){
-                    time = 0;
+                if(editTime.getText().toString().equals("")){
+                    time = 30;
                 }
                 else {
                     String a = editTime.getText().toString();
@@ -84,8 +85,8 @@ public class MainActivity extends Activity {
                 }
 
                 EditText editImportance = (EditText) findViewById(R.id.task_Importance);
-                if(editImportance.getText().toString() == null){
-                    importance = 0;
+                if(editImportance.getText().toString().equals("")){
+                    importance = 1;
                 }
                 else {
                     String b = editImportance.getText().toString();
