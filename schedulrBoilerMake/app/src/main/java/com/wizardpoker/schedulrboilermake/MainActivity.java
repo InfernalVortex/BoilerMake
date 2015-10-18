@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import static android.app.PendingIntent.getActivity;
 
@@ -66,15 +67,30 @@ public class MainActivity extends Activity {
             @Override
             public void onClick( View v ){
                 EditText editName = (EditText) findViewById(R.id.task_Name);
-                title = editName.getText().toString();
+                if(editName.getText().toString() == null ){
+                    title = "Event";
+                }
+                else {
+                    title = editName.getText().toString();
+                }
 
                 EditText editTime = (EditText) findViewById(R.id.task_Time);
-                String a = editTime.getText().toString();
-                time = Integer.parseInt(a);
+                if(editTime.getText().toString() == null ){
+                    time = 0;
+                }
+                else {
+                    String a = editTime.getText().toString();
+                    time = Integer.parseInt(a);
+                }
 
                 EditText editImportance = (EditText) findViewById(R.id.task_Importance);
-                String b = editImportance.getText().toString();
-                importance = Integer.parseInt(b);
+                if(editImportance.getText().toString() == null){
+                    importance = 0;
+                }
+                else {
+                    String b = editImportance.getText().toString();
+                    importance = Integer.parseInt(b);
+                }
 
                 s.addEvent(title, time, importance);
 
