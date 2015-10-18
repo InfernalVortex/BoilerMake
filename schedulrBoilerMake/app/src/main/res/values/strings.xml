@@ -7,4 +7,9 @@
     <string name="work_Pressure">Do you work well under pressure?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string-array name="choices">
+        <item>Rarely</item>
+        <item>Sometimes</item>
+        <item>All the time</item>
+    </string-array>
 </resources>
