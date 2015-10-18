@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
 
                 EditText editTime = (EditText) findViewById(R.id.task_Time);
                 if(editTime.getText().toString().equals("")){
-                    time = 0;
+                    time = 30;
                 }
                 else {
                     String a = editTime.getText().toString();
@@ -86,7 +86,7 @@ public class MainActivity extends Activity {
 
                 EditText editImportance = (EditText) findViewById(R.id.task_Importance);
                 if(editImportance.getText().toString().equals("")){
-                    importance = 0;
+                    importance = 1;
                 }
                 else {
                     String b = editImportance.getText().toString();
