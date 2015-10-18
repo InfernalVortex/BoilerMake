@@ -63,6 +63,7 @@ public class Schedule {
                         break;
                     }
                 }
+                sorting = false;
             }
         }
         else {
@@ -81,6 +82,7 @@ public class Schedule {
                         break;
                     }
                 }
+                sorting = false;
             }
         }
 
