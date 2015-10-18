@@ -20,10 +20,11 @@ public class listView extends Activity {
         setContentView(R.layout.activity_listview);
 
         Schedule s = new Schedule(true, true, 1, true);
+
+        ListView myListView = (ListView) findViewById(R.id.listView);
         ListAdapter adapter = new ArrayAdapter<String>(this,
         android.R.layout.simple_list_item_1, android.R.id.text1, s.refreshSchedule());
 
-        ListView myListView = (ListView) findViewById(R.id.listView);
         myListView.setAdapter(adapter);
 
     }
